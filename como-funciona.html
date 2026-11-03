@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<title>Cómo funciona · Programa instalador Montana</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
+<style>
+:root{--bg:#FFFFFF;--ink:#111214;--ink-2:#5D6168;--line:#E3E3DF;--blue:#2B7DE0;--blue-d:#2369C0}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Manrope',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+main{max-width:520px;margin:0 auto;padding:24px 20px calc(40px + env(safe-area-inset-bottom,0px))}
+.logo{height:20px;width:auto;display:block}
+.eyebrow{margin-top:32px;text-align:center;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+h1{margin:14px 0 0;text-align:center;font-size:32px;font-weight:600;letter-spacing:-.045em;line-height:1.1}
+.sub{margin:10px 0 0;text-align:center;font-size:17px;letter-spacing:-.02em;line-height:1.35;color:var(--ink-2)}
+.sub b{color:var(--ink);font-weight:500}
+video{display:block;width:100%;aspect-ratio:1/1;margin-top:24px;border-radius:22px;background:#F5F5F3;border:1px solid var(--line)}
+ol{list-style:none;margin:24px 0 0;padding:0;counter-reset:n}
+li{counter-increment:n;display:flex;gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
+li::before{content:counter(n);flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:800;display:inline-grid;place-items:center;transform:translateY(-1px)}
+li b{font-weight:700}
+.note{margin-top:20px;font-size:14px;color:var(--ink-2);line-height:1.45;text-align:center}
+</style>
+</head>
+<body>
+<main>
+<img class="logo" src="logo.png" alt="LogicWater">
+<div class="eyebrow">Programa instalador Montana</div>
+<h1>Cómo funciona</h1>
+<p class="sub"><b>Cada 4 Montanas instaladas, 1 cartucho gratis.</b><br>Lo recoges en tu almacén.</p>
+<video src="como-funciona.mp4" poster="como-funciona-portada.jpg" autoplay muted loop playsinline controls preload="auto"></video>
+<ol>
+<li><span><b>Instala la Montana.</b></span></li>
+<li><span><b>Pega la tira</b> con el código en la Montana.</span></li>
+<li><span><b>Escanea el QR</b> grande de la etiqueta y rellena nombre, email y almacén.</span></li>
+<li><span><b>Haz la foto</b> de la Montana instalada con la tira a la vista. Sin esa foto, no suma.</span></li>
+</ol>
+<p class="note">Te llega un email con cuántas llevas. Al llegar a 4, el vale de tu cartucho gratis.<br>Sin app y sin contraseña. Tus clientes son tuyos: nunca contactaremos con ellos.</p>
+</main>
+</body>
+</html>
