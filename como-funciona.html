@@ -22,13 +22,17 @@ ol{list-style:none;margin:24px 0 0;padding:0;counter-reset:n}
 li{counter-increment:n;display:flex;gap:12px;align-items:baseline;padding:12px 0;border-top:1px solid var(--line);font-size:16px;line-height:1.4}
 li::before{content:counter(n);flex:none;width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:13px;font-weight:800;display:inline-grid;place-items:center;transform:translateY(-1px)}
 li b{font-weight:700}
+#volver{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;height:56px;margin-top:18px;border:0;border-radius:56px;background:var(--blue);color:#fff;font:600 17px/1 'Manrope',system-ui,sans-serif;cursor:pointer}
+#hint{display:none;margin-top:10px;text-align:center;font-size:14px;color:var(--ink-2)}
 .note{margin-top:20px;font-size:14px;color:var(--ink-2);line-height:1.45;text-align:center}
 </style>
 </head>
 <body>
 <main>
 <img class="logo" src="logo.png" alt="LogicWater">
-<video src="como-funciona.mp4?v=10" poster="como-funciona-portada.jpg?v=10" autoplay muted loop playsinline controls preload="auto"></video>
+<video src="como-funciona.mp4?v=11" poster="como-funciona-portada.jpg?v=11" autoplay muted loop playsinline controls preload="auto"></video>
+<button id="volver" type="button">← Volver al registro</button>
+<p id="hint">Cierra esta pestaña para volver al formulario.</p>
 <ol>
 <li><span><b>Instala la Montana.</b></span></li>
 <li><span><b>Pega la tira</b> con el código en la Montana.</span></li>
@@ -37,5 +41,12 @@ li b{font-weight:700}
 </ol>
 <p class="note">Te llega un email con cuántas llevas. Al llegar a 4, el vale de tu cartucho gratis.<br>Sin app y sin contraseña. Tus clientes son tuyos: nunca contactaremos con ellos.</p>
 </main>
+<script>
+document.getElementById('volver').addEventListener('click', function () {
+  if (history.length > 1) { history.back(); return; }
+  window.close();
+  setTimeout(function () { document.getElementById('hint').style.display = 'block'; }, 400);
+});
+</script>
 </body>
 </html>
