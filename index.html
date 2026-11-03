@@ -65,6 +65,7 @@ h1{margin:22px 0 0;text-align:center;font-size:34px;font-weight:600;letter-spaci
 .cta{margin-top:28px;height:56px;border-radius:56px;background:var(--blue);color:var(--blue-on);font-size:17px;font-weight:600;
   text-decoration:none;display:flex;align-items:center;justify-content:center}
 .cta:focus-visible,.demo button:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.cta-in{margin-top:14px}
 .cta-note{margin-top:10px;text-align:center;font-size:13px;color:var(--ink-2)}
 .foot{margin-top:auto;padding-top:28px;text-align:center;font-size:12px;color:var(--note);line-height:1.5}
 ._unused{margin-top:22px;border:1.5px dashed var(--line);border-radius:18px;padding:14px}
@@ -103,7 +104,8 @@ h1{margin:22px 0 0;text-align:center;font-size:34px;font-weight:600;letter-spaci
 
   <div class="help">
     <div><h2>¿Es tu casa?</h2><p id="helpHome"></p></div>
-    <div id="helpProBox"><h2>¿Eres el instalador?</h2><p id="helpPro"></p></div>
+    <div id="helpProBox"><h2>¿Eres el instalador?</h2><p id="helpPro"></p>
+      <a class="cta cta-in" id="cambio" hidden target="_blank" rel="noopener" href="https://tally.so/r/9NBy4E">Ya he cambiado el cartucho</a></div>
   </div>
 
   <div class="foot">Cada 12 meses o 3.000 litros, lo que llegue antes.<br>Montana Ultrafiltración · LogicWater</div>
@@ -114,6 +116,7 @@ h1{margin:22px 0 0;text-align:center;font-size:34px;font-weight:600;letter-spaci
 (function(){
   const DAY = 864e5, YEAR_DAYS = 365, WARN_DAYS = 60;
   const REGISTRO = 'https://tally.so/r/jeedV9?serie=';
+  const CAMBIO = 'https://tally.so/r/9NBy4E?serie=';
   const today = new Date(); today.setHours(12,0,0,0);
   const $ = id => document.getElementById(id);
   const parse = s => { if(!s) return null; const [y,m,d] = s.split('-').map(Number); return new Date(y, m-1, d, 12); };
@@ -165,9 +168,11 @@ h1{margin:22px 0 0;text-align:center;font-size:34px;font-weight:600;letter-spaci
       warn:'Queda poco para cambiar el cartucho. Avisa a tu instalador cuando te venga bien.',
       bad:'Ya toca cambiar el cartucho. Pídeselo a tu instalador.'}[s];
     $('helpPro').textContent = s === 'ok'
-      ? 'Te avisamos por email antes de la fecha. Al cambiarlo, escanea la etiqueta del cartucho nuevo y esta página vuelve a empezar.'
-      : s === 'warn' ? 'Te enviamos el recordatorio por email. Al cambiarlo, escanea la etiqueta del cartucho nuevo y esta página vuelve a verde.'
-      : 'Al cambiarlo, escanea la etiqueta del cartucho nuevo y esta página vuelve a verde.';
+      ? 'Te avisamos por email antes de la fecha. Cuando lo cambies, vuelve a escanear esta tira y regístralo: la página vuelve a empezar.'
+      : s === 'warn' ? 'Te hemos enviado el recordatorio por email. Cuando lo cambies, regístralo aquí y esta página vuelve a verde.'
+      : 'Cuando lo cambies, regístralo aquí y esta página vuelve a verde.';
+    $('cambio').href = CAMBIO + encodeURIComponent(ref);
+    $('cambio').hidden = s === 'ok';
   }
 
   $('time').hidden = true; $('helpProBox').hidden = true; $('helpHome').textContent = '';
